@@ -1,0 +1,19 @@
+{
+  "name": "rest-redis",
+  "version": "0.1.0",
+  "description": "Restify redis interfaces to restful api, don't know what for, just for fun.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnSmithDr/rest-redis.git"
+  },
+  "author": "johnsmith1st <johnsmith1st@live.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JohnSmithDr/rest-redis/issues"
+  },
+  "homepage": "https://github.com/JohnSmithDr/rest-redis#readme"
+}
