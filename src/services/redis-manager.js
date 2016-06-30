@@ -28,11 +28,12 @@ function create(host, port, opts) {
 /**
  * Close redis client and remove by id.
  * @param {string} id
+ * @returns {number}
  */
 function close(id) {
   let client = _clients.get(id);
   if (client) client.quit();
-  _clients.delete(id);
+  return _clients.delete(id) ? 1 : 0;
 }
 
 /**
