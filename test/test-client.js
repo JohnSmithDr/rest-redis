@@ -41,3 +41,18 @@ module.exports.get = (id, key) => {
   return chai.request(baseUrl).get(`/strings/${key}`).set('x-connection-id', id)
     .then(res => res, err => err.response);
 };
+
+module.exports.keys = (id, pattern) => {
+  return chai.request(baseUrl).get('/keys').set('x-connection-id', id).query({ pattern })
+    .then(res => res, err => err.response);
+};
+
+module.exports.del = (id, key) => {
+  return chai.request(baseUrl).delete(`/keys/${key}`).set('x-connection-id', id)
+    .then(res => res, err => err.response);
+};
+
+module.exports.delKeys = (id, keys) => {
+  return chai.request(baseUrl).delete(`/keys`).set('x-connection-id', id).query({ keys: keys.join(',') })
+    .then(res => res, err => err.response);
+};

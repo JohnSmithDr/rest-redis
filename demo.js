@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 /** log every request url **/
 app.use(function(req, res, next) {
-  debug.log('[%s] %s', req.method, req.originalUrl);
+  debug.log('[%s] %s, query: %j, body: %j', req.method, req.originalUrl, req.query, req.body);
   next();
 });
 

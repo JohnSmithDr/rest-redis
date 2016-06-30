@@ -10,7 +10,7 @@ let debug = require('../debug');
 module.exports = function mwProxyCommand(command, getArgs) {
   return function (req, res, next) {
     let args = (typeof getArgs === 'function') ? getArgs(req) : [];
-    req._redisClient[command](args, (err, resp) => {
+    req._redisClient[command.toLowerCase()](args, (err, resp) => {
       if (err) return next(err);
       debug.log(resp);
       res._jsonRedisResponse(resp);

@@ -7,16 +7,16 @@ let client = require('./test-client');
 let helper = require('./test-helper');
 let debug = require('../src/debug');
 
-describe.only('/redis/strings', function () {
+describe('/redis/strings', function () {
 
-  let id;
+  let id, _keys = ['foo', 'bar'];
   
   before(function () {
     return client.auth().then(res => id = res.body.reply);
   });
   
   after(function () {
-    return client.quit(id);
+    return client.delKeys(id, _keys).then(() => client.quit(id));
   });
 
   describe('PUT /redis/strings', function () {
