@@ -1,8 +1,9 @@
 'use strict';
 
 let express = require('express');
+let debug = require('./src/debug');
 
-let port = 6000;
+let port = 6382;
 let app = express();
 let bodyParser = require('body-parser');
 
@@ -11,7 +12,7 @@ app.use(bodyParser.json());
 
 /** log every request url **/
 app.use(function(req, res, next) {
-  console.log('[%s] %s', req.method, req.originalUrl);
+  debug.log('[%s] %s', req.method, req.originalUrl);
   next();
 });
 
@@ -26,8 +27,8 @@ app.use('/redis', require('./index').routes);
 /** startup **/
 app.listen(port, (err) => {
   if (err) {
-    console.error(err);
+    debug.error(err);
     return;
   }
-  console.log('Server listening on port: %s', port);
+  debug.log('Server listening on port: %s', port);
 });
