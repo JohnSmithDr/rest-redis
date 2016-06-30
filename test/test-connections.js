@@ -16,7 +16,7 @@ describe('/redis/connections', function () {
       return client.auth('127.0.0.1', 6379)
         .then(res => {
           helper.ok(res, /^[0-9a-f]+$/i);
-          id = res.body.resp;
+          id = res.body.reply;
         });
     });
 

@@ -1,7 +1,8 @@
 'use strict';
 
-function restify(router, path, method, command) {
+function proxy(req, res, next, command, args) {
   return function (req, res, next) {
 
   }
 }
+

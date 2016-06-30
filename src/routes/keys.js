@@ -1,8 +1,9 @@
 'use strict';
 
 let router = require('express').Router();
-let keysFromQuery = require('../middleware/keys-from-query');
 let getRedisClient = require('../middleware/get-redis-client');
+let proxyCommand = require('../middleware/proxy-command');
+let utils = require('./utils');
 
 router.use(getRedisClient);
 
@@ -11,16 +12,14 @@ router.use(getRedisClient);
  * @command KEYS pattern
  * @summary Find keys matching the given pattern.
  */
-router.get('/', (req, res, next) => {
-  res._async(next, () => req._redisClient.keysAsync(req.query.pattern || '*'));
-});
+router.get('/', proxyCommand('keys', utils.patternFromQuery));
 
 /**
  * @route DELETE /keys
  * @command DEL key, [key ...]
  * @summary Delete keys.
  */
-router.delete('/', keysFromQuery, (req, res, next) => {
+router.delete('/', (req, res, next) => {
 
 });
 
@@ -110,8 +109,6 @@ router.patch('/:key/p-expiration', (req, res, next) => {
  * @command RANDOMKEY
  * @returns Create a random key.
  */
-router.post('/random', (req, res, next) => {
-  res._async(next, () => req._redisClient.randomkeyAsync());
-});
+router.post('/random', proxyCommand('randomkey'));
 
 module.exports = router;
