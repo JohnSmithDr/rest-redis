@@ -30,4 +30,12 @@ module.exports.keyValue = (req) => [ req.params.key, req.body.value ];
  * @param req
  * @returns {Array}
  */
+module.exports.keyValues = (req) => [ req.params.key ].concat(req.params.values);
+
+/**
+ * @param req
+ * @returns {Array}
+ */
 module.exports.patternFromQuery = (req) => [ req.query['pattern'] || '*' ];
+
+module.exports.switch = (val, cases) => cases[val];

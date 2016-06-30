@@ -7,6 +7,7 @@ router.use(require('../middleware/json-redis-response'));
 router.use('/connections', require('./connections'));
 router.use('/keys', require('./keys'));
 router.use('/strings', require('./strings'));
+router.use('/lists', require('./lists'));
 
 // handle error
 router.use(require('../middleware/error-response'));
