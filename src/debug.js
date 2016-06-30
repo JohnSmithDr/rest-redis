@@ -3,9 +3,9 @@
 let argv = require('minimist')(process.argv.slice(2));
 let tracer = require('tracer').colorConsole({
   format : [
-    "[{{title}}] ({{file}}:{{line}}) <{{method}}> {{message}}", //default format
+    "[{{title}}] ({{file}}:{{line}}) {{message}}", //default format
     {
-      error : "[{{title}}] ({{file}}:{{line}}) <{{method}}> {{message}}\nCall Stack:\n{{stack}}" // error format
+      error : "[{{title}}] ({{file}}:{{line}}) {{message}}\nCall Stack:\n{{stack}}" // error format
     }
   ]
 });

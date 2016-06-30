@@ -3,6 +3,7 @@
 let router = require('express').Router();
 let redisManager = require('../services/redis-manager');
 let getRedisClient = require('../middleware/get-redis-client');
+let debug = require('../debug');
 
 /**
  * @route POST /connections

@@ -9,7 +9,7 @@ Promise.promisifyAll(redis.Multi.prototype);
 
 let _clients = new Map();
 
-const _genId = () => uuid.v4().replace(/-/, '');
+const _genId = () => uuid.v4().replace(/\-/g, '');
 
 /**
  * Create redis client and return id and client.
