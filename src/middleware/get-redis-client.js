@@ -6,7 +6,8 @@ let errors = require('../errors');
 module.exports = function mwGetRedisClient(req, res, next) {
   let connId = req.header('x-connection-id');
   if (!connId) next(errors.RequireConnectionId());
-  req._redisClient = redisManager.get(connId);
-  if (!connId) next(errors.ConnectionNotFound());
+  let client = redisManager.get(connId);
+  if (!client) next(errors.ConnectionNotFound());
+  req._redisClient = client;
   next();
 };
