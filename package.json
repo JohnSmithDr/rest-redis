@@ -4,6 +4,7 @@
   "description": "Restify redis interfaces to restful api, don't know what for, just for fun.",
   "main": "index.js",
   "scripts": {
+    "demo": "node6 ./demo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
