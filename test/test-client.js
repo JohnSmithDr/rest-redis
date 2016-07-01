@@ -22,7 +22,7 @@ module.exports.quit = (connId) => {
     .then(res => res, err => err.response);
 };
 
-module.exports.command = (connId, command, args) => {
-  return chai.request(baseUrl).post('/command').set('x-connection-id', connId).send({ command, args })
+module.exports.command = (connId, body) => {
+  return chai.request(baseUrl).post('/command').set('x-connection-id', connId).send(body)
     .then(res => res, err => err.response);
 };

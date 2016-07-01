@@ -1,8 +1,9 @@
 'use strict';
 
 const ERRORS = {
-  RequireConnectionId: [ 400, 'REQUIRE CONNECTION ID' ],
-  ConnectionNotFound: [ 404, 'CONNECTION NOT FOUND' ]
+  InvalidCommand: [ 400, 'Invalid command' ],
+  RequireConnectionId: [ 400, 'Require connection id' ],
+  ConnectionNotFound: [ 404, 'Connection not found' ]
 };
 
 class RestError extends Error {
@@ -15,6 +16,6 @@ class RestError extends Error {
   }
 }
 
+module.exports.InvalidCommand = () => RestError.create(ERRORS.InvalidCommand);
 module.exports.RequireConnectionId = () => RestError.create(ERRORS.RequireConnectionId);
 module.exports.ConnectionNotFound = () => RestError.create(ERRORS.ConnectionNotFound);
-
