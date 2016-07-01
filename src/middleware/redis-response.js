@@ -2,8 +2,8 @@
 
 let debug = require('../debug');
 
-module.exports = function mwJsonRedisResponse(req, res, next) {
-  res._jsonRedisResponse = (reply) => {
+module.exports = function mwRedisResponse(req, res, next) {
+  res._redisResponse = (reply) => {
     debug.log('reply:', reply);
     res.status(200).json({ reply });
   };

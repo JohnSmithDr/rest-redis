@@ -2,14 +2,10 @@
 
 let router = require('express').Router();
 
-router.use(require('../middleware/json-redis-response'));
+router.use(require('../middleware/redis-response'));
 
+router.use('/command', require('./command'));
 router.use('/connections', require('./connections'));
-router.use('/keys', require('./keys'));
-router.use('/strings', require('./strings'));
-router.use('/lists', require('./lists'));
-router.use('/sets', require('./sets'));
-router.use('/hashes', require('./hashes'));
 
 // handle error
 router.use(require('../middleware/error-response'));
